@@ -56,14 +56,14 @@
 .orbis-codegen-btn.dx-button,
 .orbis-codegen-btn {
     position: relative !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     background: white !important;
     border: 2px solid #008579 !important;
     color: #008579 !important;
     font-weight: 600 !important;
-    padding: 4px 12px !important;
+    padding: 6px 14px !important;
     border-radius: 6px !important;
-    box-shadow: 0 2px 8px rgba(0, 133, 121, 0.1) !important;
+    box-shadow: 0 2px 8px rgba(0, 133, 121, 0.2) !important;
     transition: all 0.3s ease !important;
     min-height: auto !important;
 }
@@ -75,10 +75,18 @@
     background: linear-gradient(45deg, #008579, #FF006E, #008579, #FF006E) !important;
     background-size: 300% 300% !important;
     animation: gradientShift 1.5s ease infinite, intensify 1s ease infinite !important;
-    border: 2px solid transparent !important;
+    border: 2px solid #FF006E !important;
     color: white !important;
     box-shadow: 0 6px 25px rgba(255, 0, 110, 0.5) !important;
     transform: translateY(-2px) !important;
+}
+
+/* Ensure DevExtreme button content doesn't interfere */
+.dx-toolbar .dx-button.orbis-codegen-btn .dx-button-content,
+.orbis-codegen-btn .dx-button-content {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 /* Button content layout */
@@ -86,7 +94,6 @@
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
-    pointer-events: none !important;
 }
 
 /* AI Badge styling */
@@ -104,6 +111,7 @@
     border: 1.5px solid white !important;
     box-shadow: 0 1px 4px rgba(0, 133, 121, 0.3) !important;
     position: relative !important;
+    transition: all 0.3s ease !important;
 }
 
 /* Sparkle on AI badge */
@@ -121,17 +129,22 @@
     font-size: 13px !important;
     font-weight: 600 !important;
     color: #008579 !important;
+    transition: color 0.3s ease !important;
 }
 
 /* Hover effect for AI badge */
+.dx-toolbar .dx-toolbar-item .dx-button.orbis-codegen-btn:hover .ai-badge,
 .dx-toolbar .dx-button.orbis-codegen-btn:hover .ai-badge,
+.orbis-codegen-btn.dx-button:hover .ai-badge,
 .orbis-codegen-btn:hover .ai-badge {
     background: linear-gradient(135deg, #FF006E, #ff4d8f) !important;
     border-color: rgba(255, 255, 255, 0.9) !important;
     box-shadow: 0 4px 12px rgba(255, 0, 110, 0.5) !important;
 }
 
+.dx-toolbar .dx-toolbar-item .dx-button.orbis-codegen-btn:hover .btn-text,
 .dx-toolbar .dx-button.orbis-codegen-btn:hover .btn-text,
+.orbis-codegen-btn.dx-button:hover .btn-text,
 .orbis-codegen-btn:hover .btn-text {
     color: white !important;
 }
