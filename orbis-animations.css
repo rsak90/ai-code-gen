@@ -72,13 +72,10 @@
 .dx-toolbar .dx-button.orbis-codegen-btn:hover,
 .orbis-codegen-btn.dx-button:hover,
 .orbis-codegen-btn:hover {
-    background: linear-gradient(45deg, #008579, #FF006E, #008579, #FF006E) !important;
-    background-size: 300% 300% !important;
-    animation: gradientShift 1.5s ease infinite, intensify 1s ease infinite !important;
-    border: 2px solid #FF006E !important;
-    color: white !important;
-    box-shadow: 0 6px 25px rgba(255, 0, 110, 0.5) !important;
-    transform: translateY(-2px) !important;
+    background: #f0f9f8 !important;
+    border: 2px solid #008579 !important;
+    box-shadow: 0 4px 12px rgba(0, 133, 121, 0.3) !important;
+    transform: translateY(-1px) !important;
 }
 
 /* Ensure DevExtreme button content doesn't interfere */
@@ -111,7 +108,6 @@
     border: 1.5px solid white !important;
     box-shadow: 0 1px 4px rgba(0, 133, 121, 0.3) !important;
     position: relative !important;
-    transition: all 0.3s ease !important;
 }
 
 /* Sparkle on AI badge */
@@ -129,71 +125,18 @@
     font-size: 13px !important;
     font-weight: 600 !important;
     color: #008579 !important;
-    transition: color 0.3s ease !important;
 }
 
-/* Hover effect for AI badge */
-.dx-toolbar .dx-toolbar-item .dx-button.orbis-codegen-btn:hover .ai-badge,
-.dx-toolbar .dx-button.orbis-codegen-btn:hover .ai-badge,
-.orbis-codegen-btn.dx-button:hover .ai-badge,
-.orbis-codegen-btn:hover .ai-badge {
-    background: linear-gradient(135deg, #FF006E, #ff4d8f) !important;
-    border-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 4px 12px rgba(255, 0, 110, 0.5) !important;
-}
+/* ========== Loader (for Code Generation) ========== */
 
-.dx-toolbar .dx-toolbar-item .dx-button.orbis-codegen-btn:hover .btn-text,
-.dx-toolbar .dx-button.orbis-codegen-btn:hover .btn-text,
-.orbis-codegen-btn.dx-button:hover .btn-text,
-.orbis-codegen-btn:hover .btn-text {
-    color: white !important;
-}
-
-/* Star particles container */
-.orbis-codegen-btn .star-particles {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: none !important;
-    overflow: hidden !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
-    z-index: 1 !important;
-}
-
-/* Show stars on hover */
-.orbis-codegen-btn:hover .star-particles {
-    opacity: 1 !important;
-}
-
-/* Individual star particle */
-.orbis-codegen-btn .star {
-    position: absolute !important;
-    width: 3px !important;
-    height: 3px !important;
-    background: white !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8) !important;
-    animation: twinkle 2s ease-in-out infinite !important;
-}
-
-/* Hover state - faster star movement */
-.orbis-codegen-btn:hover .star {
-    animation: twinkle 1s ease-in-out infinite, starMove 3s linear infinite !important;
-}
-
-/* ========== Stars Loader (for Code Generation) ========== */
-
-/* Stars loader container - positioned over popup only */
+/* Loader container - positioned over popup only */
 .stars-loader-container {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(135deg, rgba(0, 133, 121, 0.08), rgba(255, 0, 110, 0.08)) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
     backdrop-filter: blur(3px) !important;
     -webkit-backdrop-filter: blur(3px) !important;
     display: flex !important;
@@ -212,78 +155,7 @@
     position: absolute !important;
 }
 
-/* Stars container for floating stars */
-.stars-loader-stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* Individual floating star */
-.stars-loader-star {
-    position: absolute !important;
-    font-size: 32px !important;
-    animation: floatStar 4s ease-in-out infinite !important;
-    opacity: 0 !important;
-    filter: brightness(1.8) drop-shadow(0 0 10px rgba(255, 215, 0, 1)) !important;
-    -webkit-filter: brightness(1.8) drop-shadow(0 0 10px rgba(255, 215, 0, 1)) !important;
-}
-
-/* Floating star animation */
-@keyframes floatStar {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0) rotate(0deg) scale(0.8);
-        filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
-    }
-    10% {
-        opacity: 1;
-        filter: brightness(2) drop-shadow(0 0 15px rgba(255, 215, 0, 1)) drop-shadow(0 0 20px rgba(255, 255, 255, 1));
-    }
-    90% {
-        opacity: 1;
-        filter: brightness(2) drop-shadow(0 0 15px rgba(255, 215, 0, 1)) drop-shadow(0 0 20px rgba(255, 255, 255, 1));
-    }
-    100% {
-        opacity: 0;
-        transform: translate(var(--tx), var(--ty)) rotate(360deg) scale(1.5);
-        filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
-    }
-}
-
-/* Different star sizes for stars loader */
-.stars-loader-star.small {
-    font-size: 28px !important;
-}
-
-.stars-loader-star.medium {
-    font-size: 36px !important;
-}
-
-.stars-loader-star.large {
-    font-size: 44px !important;
-}
-
-/* Glow effect for stars */
-@keyframes starGlow {
-    0%, 100% {
-        filter: brightness(1.8) drop-shadow(0 0 10px rgba(255, 215, 0, 1)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
-        -webkit-filter: brightness(1.8) drop-shadow(0 0 10px rgba(255, 215, 0, 1)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
-    }
-    50% {
-        filter: brightness(2.5) drop-shadow(0 0 20px rgba(255, 215, 0, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 1));
-        -webkit-filter: brightness(2.5) drop-shadow(0 0 20px rgba(255, 215, 0, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 1));
-    }
-}
-
-.stars-loader-star.glow {
-    animation: floatStar 4s ease-in-out infinite, starGlow 2s ease-in-out infinite !important;
-}
-
-/* Stars loader text */
+/* Loader text */
 .stars-loader-text {
     position: relative !important;
     z-index: 10001 !important;
@@ -292,17 +164,17 @@
     color: #008579 !important;
     text-align: center !important;
     padding: 20px 40px !important;
-    background: rgba(255, 255, 255, 0.85) !important;
+    background: white !important;
+    border: 2px solid #008579 !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 20px rgba(0, 133, 121, 0.2) !important;
     animation: typing 2s ease-in-out infinite !important;
-    text-shadow: 0 0 10px rgba(0, 133, 121, 0.3) !important;
 }
 
 /* Animated text */
 @keyframes typing {
     0%, 100% {
-        opacity: 0.5;
+        opacity: 0.7;
     }
     50% {
         opacity: 1;
